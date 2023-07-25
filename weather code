@@ -1,0 +1,16 @@
+import requests, json
+apikey="b6907d289e10d714a6e88b30761fae22"
+baseURL="https://samples.openweathermap.org/data/2.5/forecast/hourly?q="
+city=input("Enter the CityName to know Weather: ")
+num=int(input("Enter a key"))
+completeURL=baseURL +" CityName" + "&appid" +"="+ apikey
+response=requests.get(completeURL)
+read =response.json()
+if num==1:
+    print ("Description  :{}".format(read['Weather'][0]['description']))
+elif num==2:
+	print ("Wind speed :{}".format(read['wind']['speed']))
+elif num==3:
+	print ("Pressure :{}".format(read['main']['pressure']))
+else:
+	exit()
